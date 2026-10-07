@@ -1,0 +1,2 @@
+"""Local Windows seller monitor."""
+
