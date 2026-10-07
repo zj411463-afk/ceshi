@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -34,3 +34,12 @@ jobs:
           path: dist/XianyuMonitor-Windows.zip
           if-no-files-found: error
           retention-days: 30
+
+      - name: Publish direct download
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Windows 最新版
+          body: 自动构建的 Windows 版本。下载 ZIP、完整解压，然后运行 XianyuMonitor.exe。
+          files: dist/XianyuMonitor-Windows.zip
+          make_latest: true
